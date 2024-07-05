@@ -29,8 +29,12 @@ function Reservations() {
    const columns = [
     { field: 'id', headerName: 'ID',   flex:1,hide:true },
     {
-      headerName: t('name'),
-      field: 'name',
+      headerName: t('اسم المريض'),
+      field: 'Patient_id',
+renderCell: (params) => {
+  return params.row.patient.name
+}
+,
       flex:1,
   
     },
@@ -39,30 +43,24 @@ function Reservations() {
       headerName:    t('username'),
       field:   'username',
       flex:2,
-  
-    },
-    {
-      headerName:    t('phone'),
-      field:   'phone',
-      flex:2,
-  
-    },
-    {
-      headerName: t('role'),
-      field:'role',
-      flex:1,
       renderCell: (params) => {
-        var role = ''
-        if(params.row.role === 'admin'){
-          role = 'مدير'
-        }else if(params.row.role === 'doctor'){
-          role = 'مسجل'
-        }
-        return role
+        return params.row.auth.name
       }
-  
+      
     },
+    {
+      headerName:    t('doctor'),
+      field:   'Doctor_id',
+      flex:2,
+      renderCell: (params) => {
+        return params.row.doctor.name
+      }
+      ,
   
+    }, { field: 'date', headerName: 'اليوم'
+      ,   flex:1 },
+    { field: 'hour', headerName: 'الساعة'
+      ,   flex:1 },
     {
       headerName: t('created_at'),
        field: 'created_at',

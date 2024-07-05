@@ -133,7 +133,7 @@ const ScannerApp = () => {
   const { t } = useTranslation();
   return (
     <div>
-      <div className="form" style={{ height: "350px", margin: "25px" }}>
+      <div >
         <div
           className="flexjs"
           style={{

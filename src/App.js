@@ -25,13 +25,14 @@ import Docs from "./Views/Docs/Docs";
 import NewDocs from "./Views/Docs/NewDocs";
 import OneDocs from "./Views/Docs/OneDocs";
 import EmployeesList from "./Views/patient/Patientslist";
-import Employes from "./Views/patient/patients";
+
 import NewPatient from "./Views/patient/NewPatient";
 import Types from "./Views/Types/Types";
 import NewType from "./Views/Types/NewType";
 import OneTypes from "./Views/Types/OneTypes";
 import Reservations from "./Views/Reservations/Reservations";
 import NewReservation from "./Views/Reservations/NewReservation";
+import OneReservation from "./Views/Reservations/OneReservation";
 
 function App() {
   // <script type="text/javascript" src="//cdn.asprise.com/scannerjs/scanner.js"></script>
@@ -68,11 +69,11 @@ function App() {
                 <Route path="/Types/:id" element={<OneTypes />}></Route>
                 <Route path="/Types/NewType" element={< NewType />}></Route>
                 <Route path="/reservations" element={<Reservations />}></Route>
-       
+                <Route path="/reservations/:id" element={<OneReservation />}></Route>
                 <Route path="/reservations/Newreservation" element={< NewReservation />}></Route>
               </Route>
               <Route path="/Patients" element={<EmployeesList />}></Route>
-              <Route path="/allPatients" element={<Employes />}></Route>
+   
               <Route
                 path="patients/Newpatient"
                 element={<NewPatient />}
