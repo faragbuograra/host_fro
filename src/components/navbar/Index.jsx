@@ -75,14 +75,7 @@ const linksAdmin =[
     list:['Newreservation'],
   },
   
-  {
-    name:t('docs'),
-    icon:<InboxIcon  style={{ color: a ==  'docs' ? themeColor.active:themeColor.main}}/>,
-    href:'docs',
-    list:null,
-    list1:[t('New docs')],
-    list:['Newdocs'],
-  },
+  
   {
     name:t('الانواع'),
     icon:<DomainIcon  style={{ color: a ==  'types' ? themeColor.active:themeColor.main}}/>,

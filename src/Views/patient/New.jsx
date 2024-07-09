@@ -4,13 +4,12 @@ import { useSelector } from "react-redux";
 import { Button, Col, Form, FormGroup, Input, Label, Row } from "reactstrap";
 
 import { swal } from "../../components/swal";
-import axios from "axios";
-import { MultiSelect } from "primereact/multiselect";
-import scanner from "scanner-js";
+
 
 import { useDropzone } from "react-dropzone";
 import { usePostEmployMutation } from "../../app/Selice/EmployeeSelice";
 import { useParams } from "react-router-dom";
+import { useGetTypeQuery } from "../../app/Selice/TypeSelice";
 
 const baseStyle = {
   flex: 1,
@@ -42,7 +41,9 @@ const rejectStyle = {
 
 const ScannerApp = () => {
   const [url, setUrl] = React.useState("");
-  const [state, setState] = useState(null);
+  const [state, setState] = useState({
+
+  });
   const { type } = useParams();
 
   const [files, setFiles] = React.useState([]);
@@ -115,20 +116,28 @@ const ScannerApp = () => {
   function Onclick() {
 
     var form = new FormData();
-    form.append("employ_id", id);
-    form.append("title", state);
+    form.append("type", state.type);
+    form.append("name", state.title);
+    form.append("Patient_id", id);
+
 
     form.append("attachment", acceptedFiles[0]);
 
     Post({
       form: form,
-      type: type,
+      
     })
       .unwrap()
       .then((res) => {})
       .then((res) => swal("success", "success", "success"));
   }
-
+  const {
+    data:data2,
+   }=useGetTypeQuery(
+    { page:1,
+     
+      pageSize:1000}
+   )
   const themeColor = useSelector((state) => state.theme.value);
   const { t } = useTranslation();
   return (
@@ -139,43 +148,37 @@ const ScannerApp = () => {
           style={{
             width: "36vw",
           }}
-        >{
-          type == 'employFunction' ?  <>
+        >
+        
             <Label style={{ color: themeColor.text, width: "7vw" }}>
             {t("الملاحظات")}
           </Label>
-          <input  list="opts"   
-            onChange={(e) => setState(e.target.value)}  width={100}
-            style={{
-              width: "30vw",
-              padding: "10px",
-              height: "40px",
-              marginLeft: "20px",
-              marginRight: "20px",
-            }}
-            value={state}/>
-<datalist id="opts">
-<option value={"الغياب"}>الغياب</option>
-<option value={"تنبيهات"}>تنبيهات</option>
-<option value={"انذرات"}>انذرات</option>
-<option >اذونات الخروج</option>
-<option
-  value="راحة طبيه"
- >راحة طبيه</option>
-<option
-  value="لفت نظر"
-  >لفت نظر</option>
-<option
-  value="خصمومات"
-  >خصمومات</option>
-
-</datalist>
-          
-      </> :  <>
+          <select 
+       
+            onChange={(e) => setState(
+              {...state,type:e.target.value}
+            )}  width={100}
+           
+            value={state.type}>
+<option value="">{t("select")}</option>
+  {
+    data2?.data.map((item,i)=> <option
+    value={item.id} >
+      {item.name}
+    </option>
+  
+  )
+  }
+</select>
+   
             <Label style={{ color: themeColor.text, width: "7vw" }}>
             {t("title")}
           </Label>
           <Input
+          onChange={(e) => setState(  
+            {...state,title:e.target.value}
+          )
+          }
             width={100}
             style={{
               width: "30vw",
@@ -184,11 +187,10 @@ const ScannerApp = () => {
               marginLeft: "20px",
               marginRight: "20px",
             }}
-            value={state}
-            onChange={(e) => setState(e.target.value)}
+            value={state.title}
+          
           />
-      </>
-      }
+    
         </div>
         <br></br>
         <h1

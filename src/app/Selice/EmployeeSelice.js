@@ -43,7 +43,7 @@ export const EmployeeSelice = apiSlice.injectEndpoints({
  PostEmploy:builder.mutation({
     
     query:(formdata)=>({
-          url:`/admin/`+formdata.type,
+          url:`/admin/PatientDocument`,
           header:{
             'Content-Type':`multipart/form-data`,          
           },

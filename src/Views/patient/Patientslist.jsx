@@ -112,7 +112,7 @@ function Patient() {
           
 //viewe user data 
 return <Link 
-to={`/Users/${params.row.id}`}
+to={`/Patient/${params.row.id}`}
 >
         {t('view')}
 </Link>

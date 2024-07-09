@@ -21,9 +21,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import OneUser from "./Views/Users/OneUser";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Docs from "./Views/Docs/Docs";
-import NewDocs from "./Views/Docs/NewDocs";
-import OneDocs from "./Views/Docs/OneDocs";
+
 import EmployeesList from "./Views/patient/Patientslist";
 
 import NewPatient from "./Views/patient/NewPatient";
@@ -33,6 +31,7 @@ import OneTypes from "./Views/Types/OneTypes";
 import Reservations from "./Views/Reservations/Reservations";
 import NewReservation from "./Views/Reservations/NewReservation";
 import OneReservation from "./Views/Reservations/OneReservation";
+import OnePatient from "./Views/patient/OnePatient";
 
 function App() {
   // <script type="text/javascript" src="//cdn.asprise.com/scannerjs/scanner.js"></script>
@@ -73,15 +72,14 @@ function App() {
                 <Route path="/reservations/Newreservation" element={< NewReservation />}></Route>
               </Route>
               <Route path="/Patients" element={<EmployeesList />}></Route>
+              <Route path="/Patient/:id" element={<OnePatient />}></Route>
    
               <Route
                 path="patients/Newpatient"
                 element={<NewPatient />}
               ></Route>
 
-              <Route path="/docs" element={<Docs />}></Route>
-              <Route path="docs/Newdocs" element={<NewDocs />}></Route>
-              <Route path="docs/:id" element={<OneDocs />}></Route>
+         
               <Route path="/DashBoard" element={<Dashboard />}></Route>
 
               <Route path="/" element={<Dashboard />}></Route>
