@@ -151,7 +151,7 @@ const ScannerApp = () => {
         >
         
             <Label style={{ color: themeColor.text, width: "7vw" }}>
-            {t("الملاحظات")}
+            {t("type")}
           </Label>
           <select 
        

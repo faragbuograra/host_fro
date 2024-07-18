@@ -86,55 +86,15 @@ const linksAdmin =[
   },
 
 ]
-const linksEmployees =[
+const linksPatient =[
   {
-    name:t('DashBoard'),
-    icon:<HomeIcon  style={{ color: a ==  'DashBoard' ? themeColor.active:themeColor.main}} />,
-    href:'DashBoard',
+    name:t('home'),
+    icon:<HomeIcon  style={{ color: a ==  'home' ? themeColor.active:themeColor.main}} />,
+    href:'home',
     list:null
   },
-  
-  
-
-  {
-    name:t('employees'),
-    icon:<ReduceCapacityIcon  style={{ color: a ==  'employees' ? themeColor.active:themeColor.main}}/>,
-    href:'employees',
-    list:null,
-    list1:[t('New employee')],
-    list:['Newemploy'],
-  },
-  {
-    name:t('جميع الموظفين'),
-    icon:<DomainIcon  style={{ color: a ==  'allemployees' ? themeColor.active:themeColor.main}}/>,
-    href:'allemployees',
-    list:null,
-    list1:null,
-    list:null,
-  },
-
 ]
-const linksdecidins =[
-  {
-    name:t('DashBoard'),
-    icon:<HomeIcon  style={{ color: a ==  'DashBoard' ? themeColor.active:themeColor.main}} />,
-    href:'DashBoard',
-    list:null
-  },
-  
-  
 
-
-  
-  {
-    name:t('docs'),
-    icon:<InboxIcon  style={{ color: a ==  'docs' ? themeColor.active:themeColor.main}}/>,
-    href:'docs',
-    list:null,
-    list1:[t('New docs')],
-    list:['Newdocs'],
-  },
-]
   const handleDrawerToggle = () => {
     // setMobileOpen(!mobileOpen);
   };
@@ -243,7 +203,7 @@ const linksdecidins =[
        
          
         ))}
-            { originalData != 'admin'  && linksEmployees.map((text, index) => (
+            { originalData != 'admin'  && linksPatient.map((text, index) => (
           <>
           
           <NavLink to={'/'+text.href} key={text.name} replace={false}   style={{ textDecoration: 'none'}}>
@@ -289,52 +249,7 @@ const linksdecidins =[
        
          
         ))} 
-            { originalData != 'admin' && linksdecidins.map((text, index) => (
-          <>
           
-          <NavLink to={'/'+text.href} key={text.name} replace={false}   style={{ textDecoration: 'none'}}>
-             <ListItem    sx={{ 
-            color:themeColor.primary,
-            }}  >
-            <ListItemButton style={{textAlign:`${language == 'ar'?'right':'left'}`}} >
-              <ListItemIcon style={{color:themeColor.main}}>
-              {text.icon}
-              </ListItemIcon>
-
-              <ListItemText  primary={text.name} style={{ color: a ==  text.href ? themeColor.active:themeColor.main}} />
-
-            
-              {a ==  text.href && text.list != null ? <ArrowDropDownIcon />: null}
-              {a ==  text.href && text.list == null  ?<div className='line' style={{background:themeColor.active}} >
-              
-              </div> : null}
-            </ListItemButton>
-          </ListItem>
-        </NavLink>
-      
- 
-          {a ==  text.href && text.list != null && text.list.map((text1, index) => (
-    <NavLink to={text.href+'/'+text.list} key={text1} replace={false}   style={{ textDecoration: 'none'}}>
-    <ListItem className='sub'   sx={{ 
-   color:themeColor.primary,
-   }}  >
-   <ListItemButton style={{textAlign:`${language == 'ar'?'center':'left'}`}} >
-
-
-     <ListItemText primary={text.list1} style={{ color:  location.pathname.split('/')[2] ==  text1 ? themeColor.active:themeColor.main}} />
-
-     { location.pathname.split('/')[2] ==  text.href ?<div className='line' style={{background:themeColor.active}}>
-     
-     </div> : null}
-   
-   </ListItemButton>
- </ListItem>
- </NavLink>
-             ))}
-          </>
-       
-         
-        ))} 
       </List>
     </div>
   );

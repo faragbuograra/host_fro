@@ -25,8 +25,13 @@ const Login = () => {
         dispatch(setCredentials({...res,username,}))
 
         swal('success','Login Successfully','success')
-      //open dashboard in new tab
-      window.open('/#','_blank')
+        console.log(res)
+      if(res.data.role === 'admin'){
+        window.open('/#','_blank')
+      }else if(res.data.role === 'patient'){
+        window.open('/#patient','_blank')
+      }
+     
       }).catch((err)=>{ 
        
         if(err.status === 401){
