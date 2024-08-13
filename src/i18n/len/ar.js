@@ -169,4 +169,5 @@ deleted: "تم الحذف",
   "location from": "الموقع من",
   "customer from": "العميل من",
   "order  status": "حالة تعليق الطلب",
+  "New patient":"اضافة مريض"
 };

@@ -86,6 +86,29 @@ const linksAdmin =[
   },
 
 ]
+const linksdoctor =[
+  {
+    name:t('DashBoard'),
+    icon:<HomeIcon  style={{ color: a ==  'DashBoard' ? themeColor.active:themeColor.main}} />,
+    href:'DashBoard',
+    list:null
+  },
+ 
+  
+
+  {
+    name:t('patients'),
+    icon:<ReduceCapacityIcon  style={{ color: a ==  'patients' ? themeColor.active:themeColor.main}}/>,
+    href:'patients',
+    list:null,
+    list:null
+  },
+
+  
+  
+  
+
+]
 const linksPatient =[
   {
     name:t('home'),
@@ -203,7 +226,7 @@ const linksPatient =[
        
          
         ))}
-            { originalData != 'admin'  && linksPatient.map((text, index) => (
+            { originalData == 'patient'  && linksPatient.map((text, index) => (
           <>
           
           <NavLink to={'/'+text.href} key={text.name} replace={false}   style={{ textDecoration: 'none'}}>
@@ -249,7 +272,52 @@ const linksPatient =[
        
          
         ))} 
+           { originalData == 'doctor'   && linksdoctor.map((text, index) => (
+          <>
           
+          <NavLink to={'/'+text.href} key={text.name} replace={false}   style={{ textDecoration: 'none'}}>
+             <ListItem    sx={{ 
+            color:themeColor.primary,
+            }}  >
+            <ListItemButton style={{textAlign:`${language == 'ar'?'right':'left'}`}} >
+              <ListItemIcon style={{color:themeColor.main}}>
+              {text.icon}
+              </ListItemIcon>
+
+              <ListItemText  primary={text.name} style={{ color: a ==  text.href ? themeColor.active:themeColor.main}} />
+
+            
+              {a ==  text.href && text.list != null ? <ArrowDropDownIcon />: null}
+              {a ==  text.href && text.list == null  ?<div className='line' style={{background:themeColor.active}} >
+              
+              </div> : null}
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+      
+ 
+          {a ==  text.href && text.list != null && text.list.map((text1, index) => (
+    <NavLink to={text.href+'/'+text.list} key={text1} replace={false}   style={{ textDecoration: 'none'}}>
+    <ListItem className='sub'   sx={{ 
+   color:themeColor.primary,
+   }}  >
+   <ListItemButton style={{textAlign:`${language == 'ar'?'center':'left'}`}} >
+
+
+     <ListItemText primary={text.list1} style={{ color:  location.pathname.split('/')[2] ==  text1 ? themeColor.active:themeColor.main}} />
+
+     { location.pathname.split('/')[2] ==  text.href ?<div className='line' style={{background:themeColor.active}}>
+     
+     </div> : null}
+   
+   </ListItemButton>
+ </ListItem>
+ </NavLink>
+             ))}
+          </>
+       
+         
+        ))}
       </List>
     </div>
   );

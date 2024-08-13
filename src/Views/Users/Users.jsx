@@ -22,7 +22,7 @@ function Users() {
     data, error, isLoading, isFetching, isSuccess
    }=useGetUserQuery(
     { page:page,
-      role:'doctor',
+      role:'',
       pageSize:pageSize}
    )
    const columns = [
@@ -50,15 +50,19 @@ function Users() {
       headerName: t('role'),
       field:'role',
       flex:1,
-      renderCell: (params) => {
-        var role = ''
-        if(params.row.role === 'admin'){
-          role = 'مدير'
-        }else if(params.row.role === 'doctor'){
-          role = 'مسجل'
+     
+        renderCell: (params) => {
+          var role = ''
+          if(params.row.role === 'admin'){
+            role = 'مدير'
+          }else if(params.row.role === 'doctor'){
+            role = 'مسجل'
+          }else if(params.row.role === 'TPG'){
+            role = "فريق التشغيلي"
+          }
+          return role
         }
-        return role
-      }
+     
   
     },
   

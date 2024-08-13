@@ -34,9 +34,6 @@ function OneReservation() {
     id: id,
   });
 
-  function Onclick(params) {
-  }
-  
   const [state, setState] = React.useState(data ? data : {});
   return (
     <>
@@ -129,24 +126,12 @@ function OneReservation() {
         </Row>
    
 
-        <Button
-          style={{
-            background: themeColor.active,
-            float: localStorage.getItem("lang") == "ar" ? "left" : "right",
-          }}
-          onClick={() => Onclick()}
-        >
-          {t("save")}
-        </Button>
+      
       </Form>
      
     </div>
     <hr></hr>
-    <div style={{ height: "50vh", width: "70vw", margin: "20px" }}>
-
-< ScannerApp />
-     
-    </div>
+   
     </>
   );
 }

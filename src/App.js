@@ -67,13 +67,13 @@ function App() {
                 <Route path="/Types" element={<Types />}></Route>
                 <Route path="/Types/:id" element={<OneTypes />}></Route>
                 <Route path="/Types/NewType" element={< NewType />}></Route>
-                <Route path="/reservations" element={<Reservations />}></Route>
-                <Route path="/reservations/:id" element={<OneReservation />}></Route>
-                <Route path="/reservations/Newreservation" element={< NewReservation />}></Route>
+         
               </Route>
               <Route path="/Patients" element={<EmployeesList />}></Route>
               <Route path="/Patient/:id" element={<OnePatient />}></Route>
-   
+              <Route path="/reservations" element={<Reservations />}></Route>
+                <Route path="/reservations/:id" element={<OneReservation />}></Route>
+                <Route path="/reservations/Newreservation" element={< NewReservation />}></Route>
               <Route
                 path="patients/Newpatient"
                 element={<NewPatient />}

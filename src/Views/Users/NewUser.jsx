@@ -127,7 +127,11 @@ const NewUser = () => {
                 t('doctor')
               }
             </option>
-          
+            <option value={'doctor'}>
+              {
+                t('TPG')
+              }
+            </option>
           </Input>
              </Col>
         </Row>

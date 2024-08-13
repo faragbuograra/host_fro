@@ -77,33 +77,7 @@ renderCell: (params) => {
       }
   
     },
-    {
-      headerName:  t('status'),
-     field:    'status',
-      renderCell: (params) => {
-          
-      
-  
-  
-      if(params.row.status === true){
-        return <Switch
-        checked={true}
-        onChange={(e)=>UpdateUser({id:params.row.id,status:'false '})}
-        inputProps={{ 'aria-label': 'controlled' }}
-      />
-      }else{
-        return <Switch
-        // checked={false}
-         onChange={(e)=>UpdateUser({id:params.row.id,status:'true'})}
-        inputProps={{ 'aria-label': 'controlled' }}
-        />
-      }
-      
-  
-      },
-      flex:1,
-  
-    },
+
     {
       headerName:  t('action'),
      field:    'action', flex:1,

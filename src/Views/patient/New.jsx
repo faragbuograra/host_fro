@@ -221,7 +221,7 @@ const ScannerApp = () => {
         >
           {t("save")}
         </Button>
-        <Button
+        {/* <Button
           style={{
             background: themeColor.active,
             marginLeft: "10px",
@@ -230,7 +230,7 @@ const ScannerApp = () => {
           onClick={() => scanAndUploadDirectly()}
         >
           {t("Scan")}
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

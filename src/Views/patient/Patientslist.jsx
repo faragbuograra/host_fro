@@ -56,6 +56,8 @@ function Patient() {
           role = 'مدير'
         }else if(params.row.role === 'doctor'){
           role = 'مسجل'
+        }else if(params.row.role === 'TPG'){
+          role = "فريق التشغيلي"
         }
         return role
       }

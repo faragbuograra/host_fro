@@ -18,6 +18,7 @@ import { useParams } from "react-router-dom";
 import { swal } from "../../components/swal";
 import { use } from "i18next";
 import { convertDateToTime } from "../../helpers/helpers";
+import ScannerApp from "./New";
 
 function OnePatient() {
   const [page, setPage] = React.useState(1);
@@ -46,7 +47,7 @@ useEffect
 }
 , [data])
   return (
-    <div style={{ height: "100vh", width: "70vw", margin: "20px" }}>
+    <div style={{ width: "70vw", margin: "20px" }}>
        <Form>
         <Row>
           <Col md={12}>
@@ -158,10 +159,16 @@ useEffect
           {t("save")}
         </Button>
       </Form>
+      <div style={{ height: "50vh", width: "70vw", margin: "20px" }}>
+
+< ScannerApp />
+     
+    </div>
       <br></br>     <br></br>     <br></br>     <br></br>
       <h1 className="R"> {t("المستندات")}</h1>
                
                <Table name="PatientDocument" data={data?.PatientDocument} />
+           <br></br>     <br></br>     <br></br>     <br></br>
     </div>
   );
 }
@@ -285,7 +292,7 @@ function Table(props) {
 
                         justifyContent: "center",
                         float: "center",
-                      }} href={"http://" + data.file} target="_blank">
+                      }} href={data.file} target="_blank">
                       <Button
                         style={{
                           background: "green",

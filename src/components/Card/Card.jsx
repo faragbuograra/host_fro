@@ -37,10 +37,10 @@ function Card({ data }) {
         <div class="col-md-4 col-xl-3">
           <div class="card bg-c-green order-card">
             <div class="card-block">
-              <h6 class="m-b-20">{t("employees")}</h6>
+              <h6 class="m-b-20">{t("الاطباء")}</h6>
               <h2 class="text-right">
                 <i class="fa fa-envelope f-left"></i>
-                <span>{data?.employ}</span>
+                <span>{data?.doctor}</span>
               </h2>
               <p class="m-b-0">
                 {" "}
@@ -55,7 +55,7 @@ function Card({ data }) {
         <div class="col-md-4 col-xl-3">
           <div class="card bg-c-yellow order-card">
             <div class="card-block">
-              <h6 class="m-b-20">{t("Managements")}
+              <h6 class="m-b-20">{t("المرضي")}
 </h6>
               <h2 class="text-right">
                 <i class="fa fa-building f-left"></i>
@@ -74,7 +74,7 @@ function Card({ data }) {
           <div class="card bg-c-pink order-card">
             <div class="card-block">
               <h6 class="m-b-20">{
-                t("Departments")
+                t("الانواع")
               }</h6>
               <h2 class="text-right">
                 <i class="fa fa-credit-card f-left"></i>
