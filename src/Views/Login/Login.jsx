@@ -26,7 +26,7 @@ const Login = () => {
 
         swal('success','Login Successfully','success')
         console.log(res)
-      if(res.data.role === 'admin' || res.data.role=="doctor"){
+      if(res.data.role === 'admin' || res.data.role=="doctor" || res.data.role=="s"){
         window.open('/#','_blank')
       }else if(res.data.role === 'patient'){
         window.open('/#patient','_blank')

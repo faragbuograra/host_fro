@@ -5,7 +5,7 @@ import { logOut, setCredentials } from "../../features/user";
 
 const token = localStorage.getItem('token')
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://192.168.183.52:8000/api/v1',
+  baseUrl: 'http://192.168.50.52:8000/api/v1',
 
   headers:{
   //  'Content-Type': 'application/json',
